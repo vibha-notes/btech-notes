@@ -1,0 +1,51 @@
+<!-- JS code that can be reused multiple times, 
+to reduce DOM changes
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .letter {
+            background-color: #ffde00; 
+            color: #333;
+            display: inline-block;
+            padding: 25px;
+            margin: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+        
+        var des = document.querySelector("#container");
+
+        class Letter extends React.Component {
+            render() {
+                return <div className="letter">
+                    <h1>{this.props.children}</h1>
+                </div>;
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <Letter> A </Letter>
+                <Letter> E </Letter>
+                <Letter> I </Letter>
+                <Letter> O </Letter>
+                <Letter> U </Letter>
+            </div>,
+            des
+        );
+
+    </script>
+</body>
+</html>

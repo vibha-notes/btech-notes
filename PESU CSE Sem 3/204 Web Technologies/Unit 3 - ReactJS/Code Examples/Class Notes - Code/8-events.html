@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReactJS</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel" >
+        class MyDiv extends React.Component {
+            constructor(props) {
+                super(props);
+                this.myText = null;
+                this.showChar = event => {
+                    var txt;
+                    this.myText.innerHTML = event.target.value + ' ';
+
+                    if (event.shiftKey) {
+                        txt = '<span style="color:red">'+event.key+'</span>';
+                    }
+                    else {
+                        txt = event.key;
+                    }
+                    this.myText.innerHTML += txt;
+                    // event.target.value
+                }
+                this.setTextRef = element => {
+                    this.myText = element;
+                }
+                // this.showChar=this.showChar.bind(this)
+            }
+            render() {
+                return (
+                    // onChange
+                    <div>
+                    
+                        <input onKeyPress={this.showChar} type='text'/>
+                        <h1 ref={this.setTextRef}/>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(
+            <MyDiv/>,
+            document.querySelector('#container')
+        );
+    </script>
+</body>
+</html>

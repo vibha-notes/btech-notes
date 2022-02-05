@@ -1,0 +1,23 @@
+MongoDB commands
+
+> use newdb
+switched to db newdb
+> db.createCollection("student");
+{ "ok" : 1 }
+> db.student.insert({"name": "Sujan" ,"srn": "PES1", "dept": "CSE"});
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("5fa0cd9aba8940b7ab6c647b"), "name" : "Sujan", "srn" : "PES1", "dept" : "CSE" }
+> db.student.insert({"name": "Rekha" ,"srn": "PES2", "dept": "CSE"});
+WriteResult({ "nInserted" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("5fa0cd9aba8940b7ab6c647b"), "name" : "Sujan", "srn" : "PES1", "dept" : "CSE" }
+{ "_id" : ObjectId("5fa0ce0aba8940b7ab6c647c"), "name" : "Rekha", "srn" : "PES2", "dept" : "CSE" }
+> db.student.find({"srn": "PES1"})
+{ "_id" : ObjectId("5fa0cd9aba8940b7ab6c647b"), "name" : "Sujan", "srn" : "PES1", "dept" : "CSE" }
+> db.student.update({"srn": "PES1"},{"name": "Vijay" ,"srn": "PES1", "dept": "CSE"});
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.student.find()
+{ "_id" : ObjectId("5fa0cd9aba8940b7ab6c647b"), "name" : "Vijay", "srn" : "PES1", "dept" : "CSE" }
+{ "_id" : ObjectId("5fa0ce0aba8940b7ab6c647c"), "name" : "Rekha", "srn" : "PES2", "dept" : "CSE" }
+

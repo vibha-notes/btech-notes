@@ -1,0 +1,65 @@
+
+MongoDB
+- Isolated database
+- CSV (file-based, disadvantage), database (indepenedent program, 
+  decoupled from program)
+- Not rows like relational DB, but document (JSON-like, dynamic 
+  schema/schema-free)
+- NoSQL (Not Only SQL) - non-relational data storage systems
+- No concept of joins
+- No defined data schema
+- Every document can have different data
+
+- Table: collection
+- Tuple/row: document
+- Column: field
+- Table join: Embedded document
+- Primary key: primary key
+
+*** RDBMS ***
+
+CREATE TABLE users (
+    id MEDIUMINT NOT NULL AUTO_INCREMENT,
+    user_id Varchar(30),
+    age Number,
+    status char(1),
+    PRIMARY KEY (id)
+)
+
+DROP TABLE users
+
+DELETE FROM users
+WHERE status = 'D'
+
+*** MongoDB ***
+
+db.users.insert({
+    user_id: "abc123",
+    age: 55,
+    status: "A"
+})
+
+db.createCollection("users")
+
+db.users.remove()
+
+db.users.drop()
+
+db.users.remove(
+    {status: "D"}
+)
+
+db.inventory.update(
+    {item: "BE10"},
+    {
+        item: "BE05",
+        stock: [
+            {size: "S", qty: 20},
+            {size: "M", qty: 5}
+        ],
+        catergory: "apparel"
+    }
+    {upsert: true} -> inserts if doesn't exist
+)
+
+Internally stored as BSON - Binary JSON

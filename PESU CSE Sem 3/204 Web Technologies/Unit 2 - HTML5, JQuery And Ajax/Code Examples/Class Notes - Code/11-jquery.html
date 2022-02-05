@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery</title>
+
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-3.5.1.min.js"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        $("li:even").css("color", "blue");
+        console.log($("li.g1").html());
+
+        newli = document.createElement("li");
+
+        $(newli).html("<b>Halo</b>");
+        $("li:last").after(newli);
+
+        // Either of the two
+        $(newli).attr("id", "li2");
+        // newli.id = "li1";
+      });
+    </script>
+  </head>
+  <body>
+    <p>Games</p>
+    <ul>
+      <li>Call of Duty</li>
+      <li class="g1">Fortnite</li>
+      <li class="g1">PUBG</li>
+    </ul>
+  </body>
+</html>

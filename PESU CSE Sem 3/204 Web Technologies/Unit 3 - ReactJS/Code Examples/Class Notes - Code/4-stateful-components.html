@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stateful</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .result {
+            display: 'inline-block'
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel" >
+    class Counter extends React.Component {
+        constructor (props, context) {
+            super(props, context);
+            this.state = {
+                seconds: props.start
+            };
+            this.timer = this.timer.bind(this);
+        }
+
+        componentDidUpdate() {
+            console.log("Updating!!");
+        }
+
+        componentWillMount() {
+            this.t = setInterval(this.timer, 1000);
+        }
+
+        componentDidUnmount() {
+            clearInterval(this.t);
+            console.log("Stopped!!!");
+        }
+
+        timer () {
+            /* this.setState(() => {
+                return {
+                    seconds: this.state.seconds + 1
+                }
+            }) */
+
+            this.setState((prevState) => {
+                if (prevState.seconds == 0) {
+                    clearInterval(this.t);
+                }
+                else {
+                    return {
+                        seconds: prevState.seconds - 1
+                    }
+                }
+            })
+        }
+
+        render() {
+            return (
+                <h1>{this.state.seconds}</h1>
+            )
+        }
+    }
+
+    class CounterDisplay extends React.Component {
+        render() {
+            return (
+                <div>
+                    <Counter start={this.props.start}/>
+                    <h2> seconds </h2>
+                    <h2> since the page loaded </h2>
+                </div>
+            )
+        }
+    }
+
+
+    ReactDOM.render(
+        <CounterDisplay start="30"/>,
+        document.querySelector("#container")
+    );
+        
+    </script>
+</body>
+</html>

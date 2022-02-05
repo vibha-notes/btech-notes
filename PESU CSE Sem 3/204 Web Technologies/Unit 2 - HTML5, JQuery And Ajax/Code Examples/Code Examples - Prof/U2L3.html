@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>Events</title>
+		<style>
+			div, ul, li {
+				border: 1px solid black;
+				padding: 10px;
+				margin: 10px;
+			}
+		</style>
+		<script>
+			/*
+			Event Handling/Propagation Phases
+			Capturing - From Parent to Target
+			div.addEventListener("click", process,true);
+			Bubbling - From Target to Parent
+			div.addEventListener("click", process,false);--default
+			*/
+			function init(){
+				//document.querySelector("#div").addEventListener("click", handler, true);
+				//document.querySelector("#ul").addEventListener("click", handler, true);
+				//document.querySelector("#li").addEventListener("click", handler, true);
+				document.querySelector("#li").addEventListener("click", handler);
+				document.querySelector("#ul").addEventListener("click", handler);
+				document.querySelector("#div").addEventListener("click", handler);
+			}
+			function handler(event){
+				ev = event;
+				console.log(event.eventPhase+" "+event.target.id + " " + event.currentTarget.id);
+				//event.cancelBubble = true;
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div id="div">
+			<p>Popular Games</p>
+			<ul id="ul">
+				<li>Call of Duty</li>
+				<li>Assasins Creed</li>
+				<li id="li">PUBG</li>
+			</ul>
+		</div>
+	</body>
+</html>

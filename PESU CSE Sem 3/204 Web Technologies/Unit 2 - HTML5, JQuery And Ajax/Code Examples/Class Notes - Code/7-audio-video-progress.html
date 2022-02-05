@@ -1,0 +1,77 @@
+<!-- No longer require plug-ins like flash -->
+
+<!-- 
+Audio:
+    - Standard src - use .ogg and .mp3 
+    - Avoid unnecessary download, use <source/> tags, instead 
+    of putting under <audio></audio> tags
+    - <source src="song.mp3" type="audio/mp3"/>
+    - Default message for no support
+
+Video:
+    - Standard src - .ogg, .mp4 and webm
+    - Use <video></video> and <source/> tags
+    - Controls for pause, play
+    - Default message
+    - width, height
+
+Progress:
+Progress bar for task completion (no need extensive JS and CSS)
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Video</title>
+    <script type="text/javascript">
+        function init() {
+            vid_count = 0;
+            var v1 = document.querySelector("#v1");
+            // can do v1.play(); or v1.pause();
+            t = setInterval(fun, 5000);
+            
+            prog = document.querySelector("#prog");
+            t1 = setInterval(inc, 1000);
+        }
+
+        function fun() {
+            let temp = Math.floor(Math.random()*(v1.duration-5))
+            console.log(temp);
+            v1.currentTime = temp;
+            vid_count++;
+            console.log(vid_count);
+            if (vid_count == 5) {
+                clearInterval(t);
+            }
+        }
+
+        function inc() {
+            prog.value += 20;
+            if (prog.value == 100) {
+                clearInterval(t1);
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+    <!-- 
+    Autoplay is bad!! - most browsers give user control 
+    Muted autoplay allowed
+    -->
+
+    <video id="v1" autoplay controls="controls" height="200px" width="400px" muted="muted">
+        <source type="video/mp4" src="video/infinity.mp4" type="video.mp4"/>
+
+    </video>
+
+    <audio preload controls="controls">
+        <source src="audio/Flip.mp3" type="audio/mp3"/>
+    </audio>
+
+    <label for="prog">Progress</label>
+    <progress id="prog" value="0" max="100"></progress>
+</body>
+</html>

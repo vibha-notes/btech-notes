@@ -1,0 +1,15 @@
+Creating a web server 
+
+- Server waits for http requests
+- Returns the response
+- Apache is most common, very stable
+- Deliver html documents
+
+See: web application architecture
+
+Steps
+1. Import required modules
+2. Create server, specify ports
+3. Testing request/response
+
+Can create a web client that sends and receives requests

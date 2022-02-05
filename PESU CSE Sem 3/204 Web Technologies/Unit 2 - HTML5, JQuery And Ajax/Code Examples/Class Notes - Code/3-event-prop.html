@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Propagation</title>
+
+    <script type="text/javascript" src="3-event-prop.js">
+
+    </script>
+</head>
+
+<body onload="init()"> 
+    
+    <div id='div'>
+
+        <!-- Click event propagates from div to li -->
+        <p onclick="handler(event)">Popular games</p>
+        <ul id='ul'>
+            <li id='li'>Call of Duty</li>
+            <li>Fortnite</li>
+            <li>PUBG</li>
+        </ul>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+Issues while building SPAs
+
+1. In SPAs, bulk of time in keeping data in sync with UI
+2. DOM manipulation is slow (pre-traversal)
+3. Working with HTML templates is a pain
+
+React
+
+1. FaceBook and Instagram released React
+2. Automatic UI State Management
+2. Fast DOM Manipulation (virtual DOM - updates 
+   actual DOM only when required with least
+   amount of changes)
+3. APIs to create component-based UIs (modular
+   UI elements used to build more complex elements)
+4. Visuals defined entirely in JS (can use JSX that 
+   gets converted to JavaScript - Babel)
+
+
+Include React JS Libraries
+
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+Include Babel
+
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>

@@ -1,0 +1,37 @@
+<html>
+	<body>
+
+		<p id="demo"></p>
+		<p id="demo2"></p>
+		<script>
+			var text, parser, xmlDoc;
+
+			text = 
+			"<bookstore>"+
+				"<book>" +
+					"<title>Everyday Italian</title>" +
+					"<author>Giada De Laurentiis</author>" +
+					"<year>2005</year>" +
+				"</book>"+
+			"</bookstore>";
+
+			parser = new DOMParser();
+			xmlDoc = parser.parseFromString(text,"text/xml");
+
+			xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue += "-New"
+			document.getElementById("demo").innerHTML =
+			xmlDoc.getElementsByTagName("title")[0].childNodes[0].nodeValue;
+			
+			var oSerializer = new XMLSerializer();
+			var sXML = oSerializer.serializeToString(xmlDoc);
+			console.log(sXML);
+		</script>
+	</body>
+</html> 
+<bookstore>
+	<book>
+		<title>Everyday Italian-New</title>
+		<author>Giada De Laurentiis</author>
+		<year>2005</year>
+	</book>
+</bookstore>

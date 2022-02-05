@@ -1,0 +1,56 @@
+td {
+    font-size: 15px; 
+    font-weight: bolder;
+    color: cadetblue;
+}
+
+/* Class */
+p.intro{
+    font-size: 17px; 
+    font-weight: bolder;
+    color: indianred;
+}
+
+/* ID */
+#artist-table {
+    font-size: 13px; 
+    font-weight: bolder;
+    color: mediumpurple;
+}
+
+/* Hierarchy */
+ul li {
+    font-size: 13px; 
+    font-weight: bolder;
+    color: dodgerblue;
+}
+/* OR (direct descendant) with or without class/ID
+ul.class > li {
+}
+
+ul > li {
+}
+*/
+
+/* Multiple */
+
+h1, h2 {
+    font-size: 25px; 
+    font-weight: bolder;
+    color: steelblue;
+}
+
+.artist-table-head:hover {
+    color: pink;
+}
+
+/* Visited anchor tags */
+a:visited {
+    font-weight: bolder;
+    color: purple;
+}
+
+a:active {
+    font-weight: bolder;
+    color: green;
+}

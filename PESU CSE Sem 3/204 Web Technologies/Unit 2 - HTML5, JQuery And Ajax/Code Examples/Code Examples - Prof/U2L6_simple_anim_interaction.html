@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<title>My Canvas and svg</title>
+		<style>
+		<!--
+		canvas{
+			border:1px solid black
+		}
+		-->
+		</style>
+		<script type="text/javascript">
+		<!--
+		var c1, ctx;
+		function func(){
+			c1=document.getElementById("c1");
+			c1.onclick=draw;
+			ctx=c1.getContext("2d")
+			//var lg=ctx.createRadialGradient(100,100,10,100,100,200)
+			//lg.addColorStop(0,'red')
+			//lg.addColorStop(0.5,'yellow')
+			//lg.addColorStop(1,'blue')
+			ctx.fillStyle="#FF0000";//lg;
+			ctx.arc(100,200,80,0,2*Math.PI,1)
+			//ctx.fillRect(100,100,100,200);
+			ctx.fill();
+		}
+		function draw(event){
+			ctx.clearRect(0,0,800,400);
+			ctx.beginPath();
+			ctx.arc(event.clientX,event.clientY,80,0,2*Math.PI,1)
+			ctx.fill();
+			ctx.closePath();
+		}
+		function change(){
+			s1.children[0].cx.baseVal.value+=sign*20;
+			s1.children[0].cy.baseVal.value+=sign*10;
+			if(s1.children[0].cx.baseVal.value<0 || s1.children[0].cy.baseVal.value>800 || s1.children[0].cy.baseVal.value < 0 || s1.children[0].cy.baseVal.value>400)
+				sign = sign*-1;
+			i++;
+		}
+		function func1(){
+			func();
+			i=0;
+			sign=1;
+			s1 = document.getElementById("s1");
+			setInterval(change,200);
+		}
+		-->
+		</script>
+	</head>
+	<body onload="func1()">
+	<canvas id="c1" width="800px" height="400px">
+		Canvas is not supported by the Browser!!
+	</canvas>
+	
+	<svg id="s1" style="border:1px solid black" width="800" height="400">
+		<circle cx="100" cy="100" r="80" stroke="green" stroke-width="4" fill="red" />
+	</svg>
+ 
+	</body>
+</html>
+

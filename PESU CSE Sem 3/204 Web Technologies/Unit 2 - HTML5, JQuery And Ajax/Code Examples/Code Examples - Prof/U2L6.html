@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>My Canvas and svg</title>
+		<style>
+			#c1{border:"1px solid black"}
+		</style>
+		<script type="text/javascript">
+			function init(){
+				c1 = document.querySelector("#c1");
+				ctx = c1.getContext("2d");
+				
+				ctx.fillStyle = "#FF0000";
+				ctx.arc(100,100, 80, 0, Math.PI, 0);
+				ctx.fill(); //ctx.stroke();
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<canvas id="c1" width="400px" height="200px" border="1px solid black">
+			Support for Canvas in not provided by your browser!!!
+		</canvas>
+		<svg width="400px" height="200px" border="1px solid black">
+			<circle cx="100" cy="100", r="80" stroke="green" stroke-width="4" fill="red"></circle>
+		</svg>
+	</body>
+</html>
+

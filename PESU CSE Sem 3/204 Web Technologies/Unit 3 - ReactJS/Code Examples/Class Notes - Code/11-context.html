@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel" >
+
+        class Profile extends React.Component {
+            render() {
+                return (
+                    <h1>Hello, {this.props.uname} </h1>
+                )
+            }
+        }
+
+
+        function DashBoard(props) {
+            return <Profile {...props}/>
+        }
+        
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+            }
+
+            render() {
+                return (
+                    <DashBoard {...this.props}/>
+                );
+            }
+        }
+
+
+        ReactDOM.render(
+            <App uname="thor"/>,
+            document.querySelector('#container')
+        );
+    </script>
+</body>
+</html>

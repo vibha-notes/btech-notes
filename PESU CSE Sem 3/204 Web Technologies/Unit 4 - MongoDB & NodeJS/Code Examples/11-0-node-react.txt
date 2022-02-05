@@ -1,0 +1,26 @@
+NodeJS integration with ReactJS
+
+1. HTML file - containig react code
+Request for .html or .css - return file back - browser will execute
+
+2. React app approach
+Execute react code at server end
+    1. npx create-react-app myapp
+    2. cd myapp
+        scr -> index.js and App.js
+    3. npm start 
+        (starts server and waits for client connections)
+
+React Router:
+
+SPA 
+    - fewer page loads
+    - fewer requests to server
+    - faster page speeds
+
+Regular app
+    - <a> - navigation/request being sent to server
+    - server side routing
+
+Client side routing
+    - link component 

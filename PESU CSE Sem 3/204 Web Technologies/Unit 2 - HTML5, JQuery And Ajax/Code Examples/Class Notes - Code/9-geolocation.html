@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation & Web Workers</title>
+    <script type="text/javascript">
+    
+        function getPos() {
+            navigator.geolocation.getCurrentPosition(show, error);
+        }
+
+        function show(position) {
+            // Global for console
+            ps = position;
+            console.log("Current position: " + position.coords.latitude + " " + position.coords.longitude);
+        }
+        function error(error) {
+            console.log(error);
+        }
+
+        /* Check out sudokubum.com */
+
+        // Create new thread
+        var worker = new Worker("9-worker.js");
+
+        // Anonymous function
+        worker.onmessage = (event) => {
+            if (typeof(event.data) != "object") {
+                console.log("Reply: " + event.data);
+            }
+            else {
+                console.log("Message: " + event.data.message + " " + new Date().setTime(event.data.tstamp));
+            }
+        }
+        
+        setInterval(function() {
+            worker.postMessage("Hello!");
+        }, 1000);
+        
+    </script>
+</head>
+<body>
+    <!-- 
+    User's position using navigator.geolocation in JS
+    
+    Functions
+    1. getCurrentPosition() - just once
+    2. watchPosition() - monitors changes
+
+    Parameters
+    1. Success callback function
+        - lat, long etc
+    2. Error callback function
+        - error object (contains short codes)
+    3. Geo location options object
+        - timeout, enableHighAccuracy, maximumAge
+    -->
+
+    <!-- Web worker
+    
+    a. Thread executing JS
+    b. Asynchronous
+
+    - No DOM access
+    - Listen for messages (onmessage event listener)
+    - Send messages & receive
+    - AJAX requests, create timers
+    -->
+</body onload="getPos()">
+    <button onclick="getPos()">Get current position</button>
+
+</html>

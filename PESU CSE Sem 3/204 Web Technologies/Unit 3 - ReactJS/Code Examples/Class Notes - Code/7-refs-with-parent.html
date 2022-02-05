@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>References
+    </title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel" >
+        // var colors = ['yellow', 'red', 'green', 'blue', 'orange']
+        
+        function CustomInput (props) {
+            return (
+                <div>
+                    <input ref={props.inputRef} type="text"/>
+                </div>
+            )
+        }
+        
+        class Parent extends React.Component {
+            constructor(props, context) {
+                super(props, context);
+
+                this.doClick = event => {
+                    this.inputText.focus();
+                    console.log(this.inputText.value);
+                }
+            }
+
+            render() {
+                return (
+                    <div>
+                        <CustomInput inputRef={el => {this.inputText = el}}/>
+                        <button onClick={this.doClick}>Click</button>
+                    </div>
+                )
+            }
+        }
+         
+        ReactDOM.render(
+            <Parent/>,
+            document.querySelector('#container')
+        );
+    </script>
+</body>
+</html>

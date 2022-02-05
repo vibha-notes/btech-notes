@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <!-- Putting script tags here and trying to use document:
+    Document not populated with the hierarchy of objects yet
+
+    Solution: add onload="init()"
+    -->
+    <script type="text/javascript" src="1-dom.js">
+
+    </script>
+</head>
+<!-- Add onload="init()" for DOM to access in script tags
+Once the page has been loaded, the hierarchy is available (must
+define function init() in script)
+-->
+<body onload="init()"> 
+    <h1>Games</h1>
+    <ul>
+        <li>Call of Duty</li>
+        <li class="g1">Fortnite</li>
+        <li class="g1">PUBG</li>
+    </ul>
+
+    <!-- Put script tag after elements is solution #1; not elegant -->
+    
+
+</body>
+</html>

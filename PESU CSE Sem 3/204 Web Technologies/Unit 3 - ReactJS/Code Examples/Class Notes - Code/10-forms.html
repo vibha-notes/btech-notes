@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel" >
+        /* 
+        Controlled component
+        value="optionselected"
+        defaultValue
+        */
+        var txt, rv;
+
+        class BMICalc extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    height: 'in cms',
+                    weight: 'in kgs',
+                    bmi: null,
+                    bmistat: null
+                };
+
+                // Instead of defining 
+                // functions in constructor
+                this.handleChangeHeight = this.handleChangeHeight.bind(this);
+                this.handleChangeWeight = this.handleChangeWeight.bind(this);
+                this.handleSubmit = this.handleSubmit.bind(this);
+            }
+
+            handleChangeHeight = event => {
+                var height_mtrs = event.target.value/100;
+                var bmi = this.state.weight/(height_mtrs*height_mtrs);
+                var bmistat = null;
+                if (bmi < 19) {
+                    bmistat = 'Underweight'
+                }
+                else if (bmi < 26) {
+                    bmistat = 'Normal'
+                }
+                else {
+                    bmistat = 'Overweight'
+                }
+                this.setState({
+                    height: event.target.value,
+                    weight: this.state.weight,
+                    bmi: bmi,
+                    bmistat: bmistat
+                });
+            }
+
+            handleChangeWeight = event => {
+                var height_mtrs = this.state.height/100;
+                var bmi = event.target.value/(height_mtrs*height_mtrs);
+                var bmistat = null;
+                if (bmi < 19) {
+                    bmistat = 'Underweight'
+                }
+                else if (bmi < 26) {
+                    bmistat = 'Normal'
+                }
+                else {
+                    bmistat = 'Overweight'
+                }
+                this.setState({
+                    height: this.state.height,
+                    weight: event.target.value,
+                    bmi: bmi,
+                    bmistat: bmistat
+                });
+            }
+
+            handleSubmit = function (event) {
+                console.log("Height entered: " + this.state.height);
+                console.log("Weight entered: " + this.state.weight);
+                console.log("BMI: " + this.state.bmi);
+                console.log("BMI status: " + this.state.bmistat);
+                // this.statusoutput.innerHTML = "BMI: " + bmi;
+                event.preventDefault();
+            }
+
+            render() {
+                return (
+                    <form onSubmit={this.handleSubmit}>
+                        {/*<input value={this.state.value} onChange={this.handleChange} type="text"/>*/}
+                        <label>
+                        Height:
+                        </label>
+                        <input value={this.state.height} onChange={this.handleChangeHeight} type="text"></input>
+
+                        <label>
+                        Weight:</label>
+                        <input value={this.state.weight} onChange={this.handleChangeWeight} type="text"></input>
+                        <input type="submit" value="submit"/>
+                    </form>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <BMICalc/>,
+            document.querySelector('#container')
+        );
+    </script>
+</body>
+</html>

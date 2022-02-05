@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>HTML5 tags</title>
+		<script type="text/javascript">
+			var v1;
+			function init(){
+				v1 = document.querySelector("#v1");
+				v1.play();
+				setInterval(fun,5000);
+			}
+			function fun(){
+				tmp = Math.floor(Math.random()*(v1.duration-5));
+				console.log(tmp);
+				v1.currentTime = tmp;
+			}
+			function init1(){
+				p1 = document.querySelector("#p1");
+				p1.value += 20;
+				if(p1.value != 100)
+					setTimeout(init1, 1000);
+			}
+			/*function inc(){
+				p1.value += 20;
+				//if(p1.value == 100)
+					//clearInterval(t1);
+			}*/
+		</script>
+	</head>
+	<body onload="init1()"><!--onload="init()"-->
+		<video id="v1" height="200px" width="400px">
+			<source type="video/mp4" src="video/infinity.mp4"></source>
+		</video>
+		<audio preload controls="controls">
+			<source src="audio/mario.mp3" type="audio/mp3"></source>
+		</audio>
+		<br/>
+		<label for="p1">Progess Done on activity</label>
+		<progress id="p1" value="0" max="100"></progress>
+	</body>
+</html>

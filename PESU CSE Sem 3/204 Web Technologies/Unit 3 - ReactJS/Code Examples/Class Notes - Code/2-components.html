@@ -1,0 +1,56 @@
+<!-- JS code that can be reused multiple times, 
+to reduce DOM changes
+Reusability and composibility
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        .greeting {
+            color: blue
+        }
+        
+        .shocking {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script type="text/babel">
+        var des = document.querySelector("#container");
+        class HelloWorld extends React.Component {
+            render() {
+                return <h1> Hello {this.props.greet} </h1>
+            }
+        }
+        class Hello extends React.Component {
+            render() {
+                return <div className={this.props.type}>
+                <p>{this.props.children}</p>
+                </div>
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <HelloWorld greet="Batman"/>
+                <HelloWorld greet="Ironman"/>
+                <Hello type="greeting">
+                    Hi
+                </Hello>
+                <Hello type="shocking">
+                    Hi?!
+                </Hello>
+            </div>,
+            des
+        );
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+JS runtime env, not a full-fledged web server
+Supports modules (JS libraries)
+Node package manager (npm)
+
+Node.js = runtime env + js library
+
+Must build web server over it; it is just a runtime env

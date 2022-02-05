@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Inputs</title>
+    <script>
+        function setText() {
+            let col = document.querySelector("#colcode").value;
+            document.querySelector("#coltext").value = col;
+        }
+
+        function setColor() {
+            let text = document.querySelector("#coltext").value;
+            document.querySelector("#colcode").value = text; 
+        }
+    </script>
+</head>
+<body>
+    <form action="save.py" method="GET">
+        <!-- Placeholders, required, regex, name -->
+
+        <!-- Telephone number -->
+
+        <input type="tel" autofocus required placeholder="xxx-xxx-xxxx" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name="tel"></input>
+
+        <!-- Color picker -->
+        <input id="colcode" onchange="setText()" type="color" name="ucolor"></input>
+
+        <!-- Text element -->
+        <input id="coltext" onchange="setColor()" type="text" id="coltext"></input>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

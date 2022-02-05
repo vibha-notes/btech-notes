@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        #imgcontainer {
+            position:relative;
+            left: 40%
+        }
+        #btncontainer {
+            position:relative;
+            left: 48%
+        }
+        #img {
+            width: 300px;
+            height: 400px;
+        }
+    </style>
+    <script>
+        var inames = ['images/IMG1.jpg', 'images/IMG2.jpg','images/IMG2.jpg','images/IMG3.jpg',];
+        var images = [];
+        function init() {
+            mydiv = document.querySelector("div#imgcontainer");
+            for (let i=0; i<inames.length; ++i) {
+                images[i] = document.createElement("img");
+                // Downloads the image
+                images[i].src = inames[i];
+                // Does not display by default
+                images[i].style.display = "none";
+                mydiv.appendChild(images[i]);
+            }
+            images[0].style.display = "inline";
+            imageIndex = 0;
+            addbuttons();
+        }
+        function addbuttons() {
+            bdiv = document.querySelector("div#btncontainer");
+            prev = document.createElement("button");
+            next = document.createElement("button");
+
+            prev.innerText = "Prev";
+            next.innerText = "Next";
+
+            bdiv.appendChild(prev);
+            bdiv.appendChild(next);
+
+            prev.onclick = mvprev;
+            next.onclick = mvnext;
+        }
+
+        function mvprev() {
+            if (imageIndex == 0) {
+                prev.disabled = true;
+                return;
+            }
+            prev.disabled = false;
+            images[imageIndex].style.display = "none";
+            --imageIndex;
+            images[imageIndex].style.display = "inline";
+        }
+        function mvnext() {
+            if (imageIndex == images.length - 1) {
+                next.disabled = true;
+                return;
+            }
+            next.disabled = false;
+            images[imageIndex].style.display = "none";
+            ++imageIndex;
+            images[imageIndex].style.display = "inline";
+        }
+    </script>
+</head>
+<body onload="init()">
+    <div id="imgcontainer"></div>
+    <div id="btncontainer"></div>
+</body>
+</html>

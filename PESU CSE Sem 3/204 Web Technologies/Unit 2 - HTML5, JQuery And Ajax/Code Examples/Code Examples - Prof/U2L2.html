@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>Events</title>
+		<script>
+			/*
+			Event Handler Registration
+			
+			inline: <p onclick="handle()"></p>
+			event property: p1.onclick = handle;
+			event listener: p1.addEventListener("click", handle[, true]);
+			*/
+			function init(){
+				li = document.querySelector("#ac");
+				//li.onclick = handle;
+				li.addEventListener("click", handle)
+			}
+			function handle(event){
+				console.log(event);
+				event.target.style.color = "red";
+			}
+		</script>
+	</head>
+	<body onload="init()">
+		<div>
+			<p>Popular Games</p>
+			<ul>
+				<li onclick="handle(event)">Call of Duty</li>
+				<li id="ac">Assasins Creed</li>
+				<li>PUBG</li>
+			</ul>
+		</div>
+	</body>
+</html>
