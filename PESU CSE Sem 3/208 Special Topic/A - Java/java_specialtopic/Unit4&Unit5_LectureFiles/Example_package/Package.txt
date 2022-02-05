@@ -1,0 +1,17 @@
+/*import java.util.*;
+java.lang
+java.io
+java.awt
+
+
+type:
+class, interface
+
+_int, _1234mypackage
+
+userdefined:
+1) import mypackage.*;
+2) import java.util.Scanner; import mypackage.myclass;
+3) 
+mypackage.myclass c= new mypackage.myclass();
+c.show(); //access method belonging to the class

@@ -1,0 +1,5 @@
+InnerClass
+1) Non-static or member class or inner class
+2) static inner class
+3) local inner class
+4) anonymous inner class

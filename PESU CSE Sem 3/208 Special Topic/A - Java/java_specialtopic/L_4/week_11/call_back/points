@@ -1,0 +1,26 @@
+Callback in Java : concept of a callback function does not exist in Java because Java doesn’t have pointer concept. 
+However, there are situations where one could speak of a callback object or a callback interface. Instead of passing the 
+memory address of a function, interface is passed that refers to the location of a function.
+
+//inner class
+//	anonymous inner class
+//		used to implement a callback
+//		cannot have a ctor
+//		extends the class whose object is being created
+//		can downcast in the heirarchy
+//		can override methods of the super class
+//		can have attributes
+//		should not introduce new methods
+//
+
+
+
+
+
+
+
+
+
+
+
+
