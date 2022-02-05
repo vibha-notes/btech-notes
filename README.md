@@ -4,7 +4,7 @@ Disclaimer: these notes are for purely educational purposes and are not to be pr
 
 ## PES University - CSE - Notes & Resources
 
-Welcome to my curation of notes and resources for PESU (first year BTech and CSE semesters). I have tried to include as many relevant sources as I have been able to find and curated them over the semesters. I do not update the resources every year so be sure to check the syllabus of your current semester against what I have uploaded here.
+Welcome to my curation of notes and resources for PESU (first year BTech and CSE semesters). I have tried to include as many relevant sources as I have been able to find and curated them over the semesters. I do not necessarily update the resources every year so be sure to check the syllabus of your current semester against what I have uploaded here.
 
 I have included `README`s in each semester's subfolder and I request you to read the same before using the resources and/or emailing me, as your questions might be answered there. I am really happy with the responses I have received due to this and hope to continue maintaining this repository.
 
