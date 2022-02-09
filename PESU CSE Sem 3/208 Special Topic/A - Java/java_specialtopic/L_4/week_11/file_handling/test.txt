@@ -1,4 +1,0 @@
-this is a test
-input for testing
-reading and writing
-of files in java.

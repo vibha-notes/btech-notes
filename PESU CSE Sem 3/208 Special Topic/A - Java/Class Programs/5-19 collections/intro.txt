@@ -1,1 +1,0 @@
-For unparametrised collections, javac -Xlint <sourcefile>

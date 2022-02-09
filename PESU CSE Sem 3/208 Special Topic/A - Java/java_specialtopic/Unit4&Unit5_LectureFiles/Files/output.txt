@@ -1,3 +1,0 @@
-This is java course
-This is the first
-file programming

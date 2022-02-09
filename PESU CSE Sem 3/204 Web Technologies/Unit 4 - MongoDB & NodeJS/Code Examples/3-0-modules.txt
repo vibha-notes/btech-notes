@@ -1,8 +1,0 @@
-npm install validator --save
-
-const val = require('validator');
-
-
-// Export modules
-module.exports - library
-require('module');
